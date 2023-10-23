@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+    max-width: 98%;
+    margin: 0 auto ;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#login {
+    border: 1.8px solid #c7c7c7;
+    border-radius: 5px;
+    margin-bottom: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d8d8d8;
+}
+
+#login img {
+    width: 15px;
+    padding: 0 10px;
+}
+
+#login input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-left: 1.8px solid #c7c7c7;
+    height: 15px;
+}
+
+#submit {
+    padding: 10px 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.details *{
+    margin: 0;
+}
+
+.Contents {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    flex-wrap: wrap;
+}
+
+.events {
+    display: flex;
+    width: 80%;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.buttons * {
+    padding: 8px 15px 3px;
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid #8b8b89;
+    background-color: white;
+    cursor: pointer;
+}
+
+.buttons *:hover {
+    background-color: #eeeeee;
+}
+
+.allEventsHere {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.allEventsHere .eventTile {
+    flex-basis: 20.3333%;
+    text-align: center;
+    border: 1px solid;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.eventTileExtra {
+    flex-basis: 28.6333%;
+}
+
+.eventTile:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 4px rgb(68 67 67 / 15%);
+}
+
+.eventTile p{
+    margin: 10px;
+}
+
+.eventTile .endDateEventTile {
+    margin: 0;
+}
+
+.calTile {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.calTile img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.calTile h3 {
+    margin: 0px;
+}
+
+.noneShown {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    color: #707070;
+}
+
+.eventSpecificDiv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.eventSpecificDiv ul{
+    padding: 0;
+    list-style: none;
+    width: 80%;
+}
+
+.eventSpecificDiv ul li{
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+.eventSpecificDiv ul li div {
+    margin: 0px 20px;
+}
+
+.eventSpecificDiv ul li .headingTitle {
+    flex-basis: 30%;
+}
+
+.eventSpecificDiv ul li div p {
+    margin: 0;
+}
+
+
+.deleteEventMsg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.deletePopUp .message {
+    margin-top: 40px;
+    padding: 20px 40px;
+    background-color: antiquewhite;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.deletePopUp .buttonsDelete {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.deletePopUp .buttonsDelete button {
+    flex-basis: 50%;
+    padding: 10px 20px;
+    background-color: antiquewhite;
+    border-bottom: none;
+    outline: none;
+    border-left: none;
+}
+
+.deletePopUp .buttonsDelete #yes {
+    border-radius: 0px 0px 0px 20px;
+}
+
+.deletePopUp .buttonsDelete #no {
+    border-right: none;
+    border-radius: 0px 0px 20px 0px;
+}
+
+#createNewEvents, #updateEvents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+#createNewEvents input, #updateEvents input {
+    margin: 10px;
+}
+
+#createNewEvents button, #updateEvents button {
+    margin: 10px 0px;
+}
