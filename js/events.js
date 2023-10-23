@@ -55,7 +55,7 @@ const getEventPage = () => {
                 eventDiv.setAttribute('id', event.id)
                 eventDiv.innerHTML = `
                     <div class="calTile">
-                        <img src="../assets/cal.png">
+                        <img src="./assets/cal.png">
                         <h3>${event.name.text}</h3>
                     </div>
                     <p>Start: ${event.start.local}</p>
