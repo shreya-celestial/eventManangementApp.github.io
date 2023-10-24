@@ -222,7 +222,7 @@ nav {
     border-radius: 0px 0px 20px 0px;
 }
 
-#createNewEvents, #updateEvents {
+/* #createNewEvents, #updateEvents {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -236,4 +236,52 @@ nav {
 
 #createNewEvents button, #updateEvents button {
     margin: 10px 0px;
+} */
+
+#createNewEvents, #updateEvents {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.forForm {
+    display: flex;
+    flex-direction: column;
+    width: 41%;
+}
+
+.forForm h2 {
+    text-align: center;
+}
+
+.forForm div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 15px 0;
+}
+
+.forForm div>input {
+    width: 70%;
+    height: 30px;
+}
+
+.forForm div>input[type='date'] {
+    width: 70.5%;
+    margin-left: 17px;
+}
+
+.forForm div>input[name='end'] {
+    width: 70.5%;
+    margin-left: 18px;
+}
+
+.forForm div>input[name='capacity'] {
+    margin-left: 19px;
+}
+
+.forForm div>button {
+    padding: 8px 20px;
+    margin-top: 0px;
+    margin-bottom: 50px;
 }

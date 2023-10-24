@@ -58,8 +58,8 @@ const getEventPage = () => {
                         <img src="./assets/cal.png">
                         <h3>${event.name.text}</h3>
                     </div>
-                    <p>Start: ${event.start.local}</p>
-                    <p class="endDateEventTile">End: ${event.end.local}</p>
+                    <p>Start: ${moment.utc(event.start.local).format("DD-M-YYYY, h:mm a")}</p>
+                    <p class="endDateEventTile">End: ${moment.utc(event.end.local).format("DD-M-YYYY, h:mm a")}</p>
                 `;
                 eventsHere[0].appendChild(eventDiv);
             })
@@ -206,34 +206,30 @@ const updateHTMLonClick = (id,data) => {
             <div class="forForm">
                 <h2>Update Event</h2>
                 <div>
-                    <label for="name"> Event Name
-                        <input type="text" name="name" value="${data.name.text}">
-                    </label>
+                    <label for="name"> Event Name</label>
+                    <input type="text" name="name" required value="${data.name.text}">
                 </div>
                 <div>
-                    <label for="detail"> Event Detail
-                        <input type="text" name="detail" value="${data.description.text}">
-                    </label>
+                    <label for="detail"> Event Detail</label>
+                    <input type="text" name="detail" required value="${data.description.text}">
                 </div>
                 <div>
-                    <label for="start"> Start Date
-                        <input type="text" disabled name="start" value="${moment.utc(data.start.local).toDate()}">
-                    </label>
+                    <label for="start"> Start Date</label>
+                    <input type="text" name="start" disabled required value="${moment.utc(data.start.local).format("DD-M-YYYY, h:mm a")}">
                 </div>
                 <div>
-                    <label for="end"> End Date
-                        <input type="text" disabled name="end" value="${moment.utc(data.end.local).toDate()}">
-                    </label>
+                    <label for="end"> End Date</label>
+                    <input type="text" name="end" disabled required value="${moment.utc(data.end.local).format("DD-M-YYYY, h:mm a")}">
                 </div>
                 <div>
-                    <label for="capacity"> Capacity
-                        <input type="number" name="capacity" value="${data.capacity}">
-                    </label>
+                    <label for="capacity"> Capacity</label>
+                    <input type="number" name="capacity" required value="${data.capacity}">
                 </div>
                 <div>
                     <button>Update Event</button>
                 </div>
             </div>
+            
         </form>
     `;
     eventContentsDiv.appendChild(newDiv);
@@ -290,29 +286,24 @@ getNewEventPage = () => {
             <div class="forForm">
                 <h2>New Event</h2>
                 <div>
-                    <label for="name"> Event Name
-                        <input type="text" name="name" required>
-                    </label>
+                    <label for="name"> Event Name</label>
+                    <input type="text" name="name" required>
                 </div>
                 <div>
-                    <label for="detail"> Event Detail
-                        <input type="text" name="detail" required>
-                    </label>
+                    <label for="detail"> Event Detail</label>
+                    <input type="text" name="detail" required>
                 </div>
                 <div>
-                    <label for="start"> Start Date
-                        <input type="date" name="start" required min=${date.toISOString().split('T')[0]}>
-                    </label>
+                    <label for="start"> Start Date</label>
+                    <input type="date" name="start" required min=${date.toISOString().split('T')[0]}>
                 </div>
                 <div>
-                    <label for="end"> End Date
-                        <input type="date" name="end" required min=${date.toISOString().split('T')[0]}>
-                    </label>
+                    <label for="end"> End Date</label>
+                    <input type="date" name="end" required min=${date.toISOString().split('T')[0]}>
                 </div>
                 <div>
-                    <label for="capacity"> Capacity
-                        <input type="number" name="capacity" required>
-                    </label>
+                    <label for="capacity"> Capacity</label>
+                    <input type="number" name="capacity" required>
                 </div>
                 <div>
                     <button>Create Event</button>

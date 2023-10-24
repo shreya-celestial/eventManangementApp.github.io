@@ -12,10 +12,15 @@ const submit = (e) => {
 
 btn.onclick = (e) => {
     submit(e);
+    btn.setAttribute('disabled',true);
+    btn.innerText = "Validating...";
 }
 
 form.onsubmit = (e) => {
     submit(e);
+    console.log(e)
+    btn.setAttribute('disabled',true);
+    btn.innerText = "Validating...";
 }
 
 const request = async () => {
@@ -49,6 +54,8 @@ const request = async () => {
     catch(err) {
         console.log(err);
         alert('Error! Try Again.')
+        btn.setAttribute('disabled',false);
+        btn.innerText = "Submit";
     }
 
 }
