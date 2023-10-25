@@ -61,7 +61,7 @@ const request = async () => {
     catch(err) {
         console.log(err);
         alert('Error! Try Again.')
-        btn.removeAttribute('disabled',);
+        btn.removeAttribute('disabled');
         btn.innerText = "Submit";
     }
 
