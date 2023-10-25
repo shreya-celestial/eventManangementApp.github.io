@@ -74,6 +74,7 @@ nav {
     width: 80%;
     margin-top: 20px;
     flex-direction: column;
+    padding-bottom: 30px;
 }
 
 .buttons {
@@ -184,6 +185,12 @@ nav {
     margin: 0;
 }
 
+.eventSpecificDiv .eventButtons button{
+    padding:5px 20px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    margin-right: 10px;
+}
 
 .deleteEventMsg {
     display: flex;
@@ -221,22 +228,6 @@ nav {
     border-right: none;
     border-radius: 0px 0px 20px 0px;
 }
-
-/* #createNewEvents, #updateEvents {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0;
-}
-
-#createNewEvents input, #updateEvents input {
-    margin: 10px;
-}
-
-#createNewEvents button, #updateEvents button {
-    margin: 10px 0px;
-} */
 
 #createNewEvents, #updateEvents {
     display: flex;

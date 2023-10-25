@@ -149,7 +149,7 @@ const tileClicked = (id) => {
                         <h5>Start Date</h5>
                     </div>
                     <div class="titleDetails">
-                        <p class="start">${data.start.local}</p>
+                        <p class="start">${moment.utc(data.start.local).format("DD-M-YYYY, h:mm a")}</p>
                     </div>
                 </li>
                 <li>
@@ -157,7 +157,7 @@ const tileClicked = (id) => {
                         <h5>End Date</h5>
                     </div>
                     <div class="titleDetails">
-                        <p class="end">${data.end.local}</p>
+                        <p class="end">${moment.utc(data.end.local).format("DD-M-YYYY, h:mm a")}</p>
                     </div>
                 </li>
                 <li>
