@@ -11,9 +11,16 @@ const submit = (e) => {
 }
 
 btn.onclick = (e) => {
-    submit(e);
-    btn.setAttribute('disabled',true);
-    btn.innerText = "Validating...";
+    if(input.value !== '')
+    {
+        submit(e);
+        btn.setAttribute('disabled',true);
+        btn.innerText = "Validating...";
+    }
+    else
+    {
+        alert('Enter your Token');
+    }
 }
 
 form.onsubmit = (e) => {
