@@ -6,7 +6,7 @@ getNewEventPage = () => {
 
     allEvents.onclick = () => {
         getEventPage();
-    }
+    };
 
     let eventContentsDiv = document.getElementsByClassName('eventContentsDiv');
     eventContentsDiv = eventContentsDiv[0];
@@ -54,7 +54,7 @@ getNewEventPage = () => {
     newForm.onsubmit = (e) => {
         e.preventDefault();
         e.target.elements[5].disabled = true;
-        e.target.elements[5].innerText = "Loading..."
+        e.target.elements[5].innerText = "Loading...";
 
         const  body = {
             "event": {
@@ -84,14 +84,14 @@ getNewEventPage = () => {
             end: e.target.elements.end.value,
             capacity: e.target.elements.capacity.value,
             details: e.target.elements.detail.value
-        }
+        };
 
         postNewEvent(body).then((data)=>{
             getEventPage();
-        })
+        });
         
-    }
+    };
 
 
-}
+};
 

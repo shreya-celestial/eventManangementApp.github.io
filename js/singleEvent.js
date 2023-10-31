@@ -7,7 +7,7 @@ const tileClicked = (id) => {
 
         allEvents.onclick = () => {
             getEventPage();
-        }
+        };
 
         let eventContentsDiv = document.getElementsByClassName('eventContentsDiv');
         eventContentsDiv = eventContentsDiv[0];
@@ -73,12 +73,12 @@ const tileClicked = (id) => {
 
             deleteThisEvent(id,data);
 
-        }
+        };
 
         updateClick.onclick = () => {
             updateHTMLonClick(id,data);
-        }
+        };
 
-    })
+    });
 
-}
+};

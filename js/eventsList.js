@@ -1,12 +1,20 @@
 const container = document.querySelector('div');
-// const sessionUser = JSON.parse(sessionStorage.getItem('details'))
+const sessionUser = JSON.parse(sessionStorage.getItem('details'));
 
 let obj;
 
 const getEventPage = () => {
 
-    container.innerHTML = "";
+    if(sessionUser === null && (user === null || user === undefined))
+    {
+        return;
+    }
+    else if((user === null || user === undefined) && sessionUser !== null)
+    {
+        user = sessionUser;
+    }
 
+    container.innerHTML = "";
     container.style.cssText = `
         flex-direction: column;
         justify-content: unset;
@@ -36,7 +44,7 @@ const getEventPage = () => {
             </div>
         </div>
     `;
-    container.appendChild(divEventPage)
+    container.appendChild(divEventPage);
     const eventsButton = document.getElementById('AllEventsButton');
     eventsButton.style.cssText = `background-color: #eeeeee`;
 
@@ -51,8 +59,8 @@ const getEventPage = () => {
             eventsHere[0].innerHTML = '';
             obj.forEach((event)=>{
                 const eventDiv = document.createElement('div');
-                eventDiv.setAttribute('class', 'eventTile')
-                eventDiv.setAttribute('id', event.id)
+                eventDiv.setAttribute('class', 'eventTile');
+                eventDiv.setAttribute('id', event.id);
                 eventDiv.innerHTML = `
                     <div class="calTile">
                         <img src="./assets/cal.png">
@@ -62,9 +70,9 @@ const getEventPage = () => {
                     <p class="endDateEventTile">End: ${moment.utc(event.end.local).format("DD-M-YYYY, h:mm a")}</p>
                 `;
                 eventsHere[0].appendChild(eventDiv);
-            })
+            });
             const extraDiv = document.createElement('div');
-            extraDiv.setAttribute('class', 'eventTileExtra')
+            extraDiv.setAttribute('class', 'eventTileExtra');
             eventsHere[0].appendChild(extraDiv);
         }
         else
@@ -83,9 +91,9 @@ const getEventPage = () => {
             tile.onclick = () => {
                 
                 tileClicked(id);
-            }
+            };
 
-        })
+        });
 
     }).catch((err)=>{
 
@@ -102,9 +110,11 @@ const getEventPage = () => {
   
     newEvent.onclick = () => {
         newEvent.style.cssText = `background-color: #eeeeee`;
-        eventsButton.style.cssText = `background-color: white`
+        eventsButton.style.cssText = `background-color: white`;
 
         getNewEventPage();
-    }
+    };
 
-}
+};
+
+getEventPage();

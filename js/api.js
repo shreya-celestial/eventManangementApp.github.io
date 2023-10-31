@@ -1,6 +1,7 @@
 const getOrgId = async (id,token) => {
 
     const config = { 
+        method: "GET",
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -10,19 +11,20 @@ const getOrgId = async (id,token) => {
 
     try {
 
-        const data = await axios.get(url,config);
+        const response = await fetch(url,config);
+        const data = await response.json();
         
-        if(data.status === 200)
+        if(response.status === 200)
         {
-            return data.data.organizations[0].id;
+            return data.organizations[0].id;
         }
 
     }
     catch(err) {
         console.log(err);
-        alert('Error! Try Again.')
+        alert('Error! Try Again.');
     }
-}
+};
 
 const getEvents = async () => {
 
@@ -34,6 +36,7 @@ const getEvents = async () => {
     `;
 
     const config = { 
+        method: "GET",
         headers: {
             Authorization: `Bearer ${user.token}`
         }
@@ -43,11 +46,12 @@ const getEvents = async () => {
 
     try {
 
-        const list = await axios.get(url,config);
+        const list = await fetch(url,config);
         
         if(list.status === 200)
         {
-            return list.data.events;
+            const data = await list.json();
+            return data.events;
         }
 
     }
@@ -55,34 +59,38 @@ const getEvents = async () => {
         console.log(err);
     }
 
-}
+};
 
 const postNewEvent = async (body) => {
 
     const config = { 
+        method: "POST",
         headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${user.token}`
-        }
+        },
+        body: JSON.stringify(body)
     };
 
-    const url = `https://www.eventbriteapi.com/v3/organizations/${user.orgId}/events/`
+    const url = `https://www.eventbriteapi.com/v3/organizations/${user.orgId}/events/`;
 
     try {
 
-        const list = await axios.post(url,body,config);
+        const list = await fetch(url,config);
+        const data = await list.json();
         
         if(list.status === 200)
         {
-            return list.data.id;
+            return data.id;
         }
 
     }
     catch(err) {
         console.log(err);
-        alert('Error! Try Again.')
+        alert('Error! Try Again.');
     }
 
-}
+};
 
 const getSingleEvent = async (id) => {
 
@@ -100,56 +108,62 @@ const getSingleEvent = async (id) => {
     eventContentsDiv.appendChild(newDiv);
 
     const config = { 
+        method: "GET",
         headers: {
             Authorization: `Bearer ${user.token}`
         }
     };
 
-    const url = `https://www.eventbriteapi.com/v3/events/${id}/`
+    const url = `https://www.eventbriteapi.com/v3/events/${id}/`;
 
     try {
 
-        const data = await axios.get(url,config);
+        const list = await fetch(url,config);
         
-        if(data.status === 200)
+        if(list.status === 200)
         {
-            return data.data;
+            const data = await list.json();
+            return data;
         }
 
     }
     catch(err) {
         console.log(err);
-        alert('Error! Try Again.')
+        alert('Error! Try Again.');
     }
 
-}
+};
 
 const updateEvent = async (id,body) => {
 
     const config = { 
+        method: "POST",
         headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${user.token}`
-        }
+        },
+        body: JSON.stringify(body)
     };
 
-    const url = `https://www.eventbriteapi.com/v3/events/${id}/`
+    const url = `https://www.eventbriteapi.com/v3/events/${id}/`;
 
     try {
 
-        const list = await axios.post(url,body,config);
+        const list = await fetch(url, config);
         
         if(list.status === 200)
         {
-            return list.data.id;
+            const data = await list.json();
+            return data.id;
         }
 
     }
     catch(err) {
         console.log(err);
-        alert('Error! Try Again.')
+        alert('Error! Try Again.');
     }
 
-}
+};
 
 const deleteEvent = async (id) => {
 
@@ -167,20 +181,21 @@ const deleteEvent = async (id) => {
     eventContentsDiv.appendChild(newDiv);
 
     const config = { 
+        method: "DELETE",
         headers: {
             Authorization: `Bearer ${user.token}`
         }
     };
 
-    const url = `https://private-anon-124a7d0191-eventbriteapiv3public.apiary-proxy.com/v3/events/${id}/`
+    const url = `https://private-anon-124a7d0191-eventbriteapiv3public.apiary-proxy.com/v3/events/${id}/`;
 
     try {
 
-        const list = await axios.delete(url,config);
+        const list = await fetch(url,config);
         
         if(list.status === 200)
         {
-            return
+            return;
         }
 
     }
@@ -188,4 +203,4 @@ const deleteEvent = async (id) => {
         console.log(err);
     }
 
-}
+};

@@ -33,11 +33,11 @@ deleteThisEvent = (id,data) => {
 
         });
 
-    }
+    };
 
     declineDelete.onclick = () => {
         tileClicked(id);
-    }
+    };
 
 
-}
+};

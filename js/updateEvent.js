@@ -46,7 +46,7 @@ const updateHTMLonClick = (id,data) => {
     newForm.onsubmit = (e) => {
         e.preventDefault();
         e.target.elements[5].disabled = true;
-        e.target.elements[5].innerText = "Updating..."
+        e.target.elements[5].innerText = "Updating...";
 
         const  body = {
             "event": {
@@ -62,9 +62,9 @@ const updateHTMLonClick = (id,data) => {
 
         updateEvent(id,body).then((data)=>{
             tileClicked(data);
-        })
+        });
 
-    }
+    };
 
    
-}
+};
