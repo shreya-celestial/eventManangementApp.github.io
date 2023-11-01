@@ -1,18 +1,12 @@
-
 const tileClicked = (id) => {
-
     getSingleEvent(id).then((data)=>{
-    
         const allEvents = document.getElementById('AllEventsButton');
-
         allEvents.onclick = () => {
             getEventPage();
         };
-
         let eventContentsDiv = document.getElementsByClassName('eventContentsDiv');
         eventContentsDiv = eventContentsDiv[0];
         eventContentsDiv.innerHTML = '';
-
         const newDiv = document.createElement('div');
         newDiv.setAttribute('class', 'eventSpecificDiv');
         newDiv.innerHTML = `
@@ -65,20 +59,13 @@ const tileClicked = (id) => {
             </div>
         `;
         eventContentsDiv.appendChild(newDiv);
-
         const updateClick = document.getElementById('update');
         const deleteEvent = document.getElementById('delete');
-
         deleteEvent.onclick = () => {
-
             deleteThisEvent(id,data);
-
         };
-
         updateClick.onclick = () => {
             updateHTMLonClick(id,data);
         };
-
     });
-
 };

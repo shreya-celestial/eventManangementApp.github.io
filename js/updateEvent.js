@@ -1,11 +1,7 @@
-
-
 const updateHTMLonClick = (id,data) => {
-
     let eventContentsDiv = document.getElementsByClassName('eventContentsDiv');
     eventContentsDiv = eventContentsDiv[0];
     eventContentsDiv.innerHTML = '';
-
     const newDiv = document.createElement('div');
     newDiv.setAttribute('class', 'newEventPage');
     newDiv.innerHTML = `
@@ -40,14 +36,11 @@ const updateHTMLonClick = (id,data) => {
         </form>
     `;
     eventContentsDiv.appendChild(newDiv);
-
     const newForm = document.querySelector('#updateEvents');
-
     newForm.onsubmit = (e) => {
         e.preventDefault();
         e.target.elements[5].disabled = true;
         e.target.elements[5].innerText = "Updating...";
-
         const  body = {
             "event": {
               "name": {
@@ -59,12 +52,8 @@ const updateHTMLonClick = (id,data) => {
               "capacity": e.target.elements.capacity.value
             }
         };
-
         updateEvent(id,body).then((data)=>{
             tileClicked(data);
         });
-
-    };
-
-   
+    }; 
 };

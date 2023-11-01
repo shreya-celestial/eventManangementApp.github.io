@@ -1,11 +1,7 @@
-
-
 deleteThisEvent = (id,data) => {
-
     let eventContentsDiv = document.getElementsByClassName('eventContentsDiv');
     eventContentsDiv = eventContentsDiv[0];
     eventContentsDiv.innerHTML = '';
-
     const newDiv = document.createElement('div');
     newDiv.setAttribute('class', 'deleteEventMsg');
     newDiv.innerHTML = `
@@ -21,23 +17,14 @@ deleteThisEvent = (id,data) => {
         </div>
     `;
     eventContentsDiv.appendChild(newDiv);
-
     const agreeDelete = document.getElementById('yes');
     const declineDelete = document.getElementById('no');
-
     agreeDelete.onclick = () => {
-
         deleteEvent(id).then((data)=>{
-
             getEventPage();
-
         });
-
     };
-
     declineDelete.onclick = () => {
         tileClicked(id);
     };
-
-
 };

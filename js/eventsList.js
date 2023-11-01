@@ -1,10 +1,7 @@
 const container = document.querySelector('div');
 const sessionUser = JSON.parse(sessionStorage.getItem('details'));
-
 let obj;
-
 const getEventPage = () => {
-
     if(sessionUser === null && (user === null || user === undefined))
     {
         return;
@@ -13,14 +10,12 @@ const getEventPage = () => {
     {
         user = sessionUser;
     }
-
     container.innerHTML = "";
     container.style.cssText = `
         flex-direction: column;
         justify-content: unset;
         align-items: unset;
     `;
-    
     const nav = document.createElement('nav');
     nav.innerHTML = `
         <h1>Event Organizee</h1>
@@ -30,7 +25,6 @@ const getEventPage = () => {
         </div>
     `;
     container.appendChild(nav);
-
     const divEventPage = document.createElement('div');
     divEventPage.setAttribute('class','Contents');
     divEventPage.innerHTML = `
@@ -47,13 +41,9 @@ const getEventPage = () => {
     container.appendChild(divEventPage);
     const eventsButton = document.getElementById('AllEventsButton');
     eventsButton.style.cssText = `background-color: #eeeeee`;
-
     const eventsHere = document.getElementsByClassName('allEventsHere');
-
     getEvents().then((data)=>{
-        
         obj = data;
-
         if(obj.length>0)
         {
             eventsHere[0].innerHTML = '';
@@ -83,38 +73,29 @@ const getEventPage = () => {
                 </div>
             `;
         }
-
         const eventTilesClick = document.querySelectorAll('div.eventTile');
         eventTilesClick.forEach((tile)=>{
-            
             const id = tile.id;
             tile.onclick = () => {
                 
                 tileClicked(id);
             };
-
         });
-
     }).catch((err)=>{
-
         eventsHere[0].innerHTML = "";
         eventsHere[0].innerHTML = `
             <div class = "noneShown">
                 <h1>ERROR FETCHING!!</h1>
             </div>
         `;
-
     });    
-
     const newEvent = document.getElementById('createNewEvent');
-  
     newEvent.onclick = () => {
         newEvent.style.cssText = `background-color: #eeeeee`;
         eventsButton.style.cssText = `background-color: white`;
 
         getNewEventPage();
     };
-
 };
 
 getEventPage();

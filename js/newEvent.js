@@ -1,23 +1,15 @@
-
-
 getNewEventPage = () => {
-
     const allEvents = document.getElementById('AllEventsButton');
-
     allEvents.onclick = () => {
         getEventPage();
     };
-
     let eventContentsDiv = document.getElementsByClassName('eventContentsDiv');
     eventContentsDiv = eventContentsDiv[0];
     eventContentsDiv.innerHTML = '';
-
     const newDiv = document.createElement('div');
     newDiv.setAttribute('class', 'newEventPage');
-
     const date = new Date();
     date.setDate(date.getDate() + 1);
-
     newDiv.innerHTML = `
         <form id="createNewEvents">
             <div class="forForm">
@@ -49,13 +41,11 @@ getNewEventPage = () => {
         </form>
     `;
     eventContentsDiv.appendChild(newDiv);
-
     const newForm = document.querySelector('#createNewEvents');
     newForm.onsubmit = (e) => {
         e.preventDefault();
         e.target.elements[5].disabled = true;
         e.target.elements[5].innerText = "Loading...";
-
         const  body = {
             "event": {
               "name": {
@@ -76,7 +66,6 @@ getNewEventPage = () => {
               "capacity": e.target.elements.capacity.value
             }
         };
-
         const newObj = {
             id: obj.length,
             event: e.target.elements.name.value,
@@ -85,13 +74,9 @@ getNewEventPage = () => {
             capacity: e.target.elements.capacity.value,
             details: e.target.elements.detail.value
         };
-
         postNewEvent(body).then((data)=>{
             getEventPage();
         });
-        
     };
-
-
 };
 

@@ -3,7 +3,6 @@ const btn = document.getElementById('submit');
 const input = document.querySelector('input');
 let user;
 
-
 const submit = (e) => {
     e.preventDefault();
     inputText = input.value;
@@ -25,24 +24,19 @@ btn.onclick = (e) => {
 
 form.onsubmit = (e) => {
     submit(e);
-    
     btn.setAttribute('disabled',true);
     btn.innerText = "Validating...";
 };
 
 const request = async () => {
-    
     const config = { 
         method: "GET",
         // headers: {
         //     Authorization: `Bearer ${inputText}`
         // }
     };
-
     const url = `https://www.eventbriteapi.com/v3/users/me/?token=${inputText}`;
-
     const response = await fetch(url,config);
-    
     if(response.status === 200)
     {
         const login = await response.json();
@@ -54,7 +48,6 @@ const request = async () => {
             getEventPage();
 
         });
-        
     }
     else 
     {
@@ -62,8 +55,6 @@ const request = async () => {
         btn.innerText = "Submit";
         alert('Error! Try Again.');
     }
-
-
 };
 
 
